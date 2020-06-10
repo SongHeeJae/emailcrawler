@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from urllib import parse
 from time import time
 from time import localtime
+import re
 import csv
 
 class VerticalScrolledFrame(Frame):
@@ -86,6 +87,7 @@ def search(url, text, menu_list) :
         return
 
     for i in range(len(menu_list)) :
+        menu_list[i][0] = re.sub(pattern='[^\w\s]', repl='', string=menu_list[i][0])
         text.insert(END, str(i+1) + ' - ' + menu_list[i][0] + '\n')
 
 def getClubId(url) :
