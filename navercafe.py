@@ -231,9 +231,11 @@ def checkAll(items, cVar1) :
 def save(radVar, radVar2, items) :
     filename = filedialog.asksaveasfilename(filetypes=[('text', '.txt')], title="save")
   
+    if filename == '' : return
+    
     if filename[-4:] != '.txt' :
         filename += '.txt'
-
+    
     with open(filename, 'w') as f :
         f.write('navercafe\n')
         f.write(str(radVar.get()) + '\n')
